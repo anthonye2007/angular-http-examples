@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sample-post';
+
+  makePost() {
+    console.log('here');
+  }
 }
