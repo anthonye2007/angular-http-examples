@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+class Todo {
+  title: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +19,6 @@ export class AppComponent {
   makeGet() {
     console.log('here');
     const url = 'https://jsonplaceholder.typicode.com/todos/1';
-    this.http.get(url).subscribe(data => this.todos = data.title);
+    this.http.get<Todo>(url).subscribe(data => this.todos = data.title);
   }
 }
