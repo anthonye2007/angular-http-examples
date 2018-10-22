@@ -20,11 +20,18 @@ export class AppComponent {
   title = 'sample-post';
   todos = null;
   created = new Post();
+  xml = null;
 
   makeGet() {
     console.log('in GET');
     const url = 'https://jsonplaceholder.typicode.com/todos/1';
     this.http.get<Todo>(url).subscribe(data => this.todos = data.title);
+  }
+
+  makeXMLGet() {
+    console.log('requesting xml');
+    const url = 'http://northwind.servicestack.net/customers?format=xml';
+    this.http.get(url, {responseType: 'text'}).subscribe(data => this.xml = data);
   }
 
   makePost() {
